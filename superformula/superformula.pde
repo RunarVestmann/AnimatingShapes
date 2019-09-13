@@ -5,21 +5,21 @@ https://en.wikipedia.org/wiki/Superformula
 */
 
 void setup(){
- size(500,500); 
+ size(360,240); 
  noFill();
- stroke(200,0,0);
+ stroke(20,100,50);
  strokeWeight(1);
 }
 
-final float scale = 200f;
-final float thetaDelta = 0.001f;
+final float scale = 100f;
+final float thetaDelta = 0.01f;
 float t = 0f;
 float tDelta = 0.01f; 
 
 void draw(){
   background(0);
   translate(width / 2, height / 2);
-  fill(200,0,0);
+  fill(20,100,50);
   beginShape();
   
   for(float theta = 0.0f; theta < 2.0f*PI; theta+=thetaDelta){
@@ -27,11 +27,11 @@ void draw(){
     theta,
     1, //a
     1, //b
-    16, //m1
-    16, //m2
+    23, //m1
+    23, //m2
     1, //n1
-    sin(t) - .4f, //n2
-    cos(t) //n3
+    sin(t), //n2
+    cos(t)  //n3
     );
     //Changing the polar coordinates to cartesian coordinates 
     float x = radius * cos(theta) * scale;
@@ -40,6 +40,8 @@ void draw(){
   }
   endShape();
   t+= tDelta;
+  
+  saveFrame("output/test####.png");
 }
 
 //The superformula
